@@ -1,0 +1,20 @@
+name: Reusable Workflow
+
+on:
+  workflow_call:
+    secrets:
+      SSH_KEY:
+        required: true
+
+jobs:
+  deploy:
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show repo info
+        run: echo "Running reusable workflow in Repo B"
+
+      - name: Echo SSH key
+        run: |
+          echo "Secret passed: ${{ secrets.SSH_KEY }}"
+          echo "Another line"
