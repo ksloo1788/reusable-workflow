@@ -18,11 +18,7 @@ jobs:
         run: |
           echo "Secret passed: ${{ secrets.SSH_KEY }}"
           echo "Another line"
-
-      - name: Echo SSH key
-        if: ${{ secrets.SSH_KEY == 'HELLO' }}
-        run: |
-          echo "MATCHED"
+          
   deploy:
     environment: non-prod
     runs-on: ubuntu-latest
@@ -34,8 +30,3 @@ jobs:
         run: |
           echo "Secret passed: ${{ secrets.SSH_KEY }}"
           echo "Another line"
-
-      - name: Echo SSH key
-        if: ${{ secrets.SSH_KEY == 'HELLO' }}
-        run: |
-          echo "MATCHED"
