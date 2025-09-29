@@ -18,3 +18,8 @@ jobs:
         run: |
           echo "Secret passed: ${{ secrets.SSH_KEY }}"
           echo "Another line"
+
+      - name: Echo SSH key
+        if: ${{ secrets.MY_SECRET == 'HELLO' }}
+        run: |
+          echo "MATCHED"
