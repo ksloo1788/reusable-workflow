@@ -20,7 +20,7 @@ jobs:
           echo "Another line"
 
       - name: Echo SSH key
-        if: ${{ secrets.MY_SECRET == 'HELLO' }}
+        if: ${{ secrets.SSH_KEY == 'HELLO' }}
         run: |
           echo "MATCHED"
   deploy:
@@ -36,6 +36,6 @@ jobs:
           echo "Another line"
 
       - name: Echo SSH key
-        if: ${{ secrets.MY_SECRET == 'HELLO' }}
+        if: ${{ secrets.SSH_KEY == 'HELLO' }}
         run: |
           echo "MATCHED"
