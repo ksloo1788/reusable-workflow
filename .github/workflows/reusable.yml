@@ -7,8 +7,24 @@ on:
         required: true
 
 jobs:
-  deploy:
+  deploy-prod:
     environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show repo info
+        run: echo "Running reusable workflow in Repo B"
+
+      - name: Echo SSH key
+        run: |
+          echo "Secret passed: ${{ secrets.SSH_KEY }}"
+          echo "Another line"
+
+      - name: Echo SSH key
+        if: ${{ secrets.MY_SECRET == 'HELLO' }}
+        run: |
+          echo "MATCHED"
+  deploy:
+    environment: non-prod
     runs-on: ubuntu-latest
     steps:
       - name: Show repo info
